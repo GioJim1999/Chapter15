@@ -10,6 +10,11 @@
 #include"Time.h"
 #include"Essay.h"
 #include"CustomerData.h"
+#include"PreferredCustomer.h"
+#include"Ship.h"
+#include"CargoShip.h"
+#include"CruiseShip.h"
+
 using namespace std;
 
 //Function prototypes:
@@ -18,6 +23,10 @@ void Challenge3();
 void Challenge4();
 void Challenge6();
 void Challenge7();
+void Challenge8();
+void Challenge12();
+
+void setCustomerData(CustomerData& obj);
 
 int main()
 {
@@ -36,6 +45,10 @@ int main()
 			Challenge6(); break;
 		case 7:
 			Challenge7(); break;
+		case 8:
+			Challenge8(); break;
+		case 12:
+			Challenge12(); break;
 		}
 
 	} while (true);
@@ -51,8 +64,8 @@ int menuOption()
 	cout << "\n\t4. Challenge 4 - Time Format";
 	cout << "\n\t6. Challenge 6 - Essay Class";
 	cout << "\n\t7. Challenge 7 - Person Data and Customer Data Class";
-	cout << "\n\t8. Challenge 8 - ";
-	cout << "\n\t12. Challenge 12 - ";
+	cout << "\n\t8. Challenge 8 - Preffered Customer Class";
+	cout << "\n\t12. Challenge 12 - Ship, CruiseShip, and CargoShip Classes";
 	cout << "\n\t-----------------------------------------";
 	cout << "\n\t0. Exit";
 
@@ -132,6 +145,26 @@ void Challenge7()
 	system("cls");
 	cout << "\n\tChallenge 7 - Person Data and Customer Date Class";
 	cout << "\n\t-----------------------------------------\n";
+	
+
+	CustomerData customer;
+
+	setCustomerData(customer);
+
+
+	system("cls");
+	cout << "\n\tCustomer Data:	";
+	cout << "\n\t-----------------------------------------\n";
+	cout << customer << "\n";
+
+	cout << "\n";
+	system("pause");
+}
+
+//Precondition: obj (CustomerData &)
+//Postcondition: asks the user to enter data for customer and sets the entered data to the correct class members.
+void setCustomerData(CustomerData& obj)
+{
 	string lastName, firstName, address, city, state, zip, phone;
 	lastName = inputString("\n\tEnter Customer's last name: ", true);
 	firstName = inputString("\n\tEnter Customer's first name: ", true);
@@ -143,20 +176,73 @@ void Challenge7()
 	int customerNumber = inputInteger("\n\tEnter the Customer number: ", true);
 	bool isMailingList = inputInteger("\n\tIs Customer on mailing list (0 for no) (1 for yes): ", 0, 1);
 
-	CustomerData customer(customerNumber, isMailingList);
-	customer.setLastName(lastName);
-	customer.setFirstName(firstName);
-	customer.setAddress(address);
-	customer.setCity(city);
-	customer.setState(state);
-	customer.setZip(zip);
-	customer.setPhone(phone);
 
+	obj.setLastName(lastName);
+	obj.setFirstName(firstName);
+	obj.setAddress(address);
+	obj.setCity(city);
+	obj.setState(state);
+	obj.setZip(zip);
+	obj.setPhone(phone);
+	obj.setCustomerNumber(customerNumber);
+	obj.setMailingList(isMailingList);
+}
+
+void Challenge8()
+{
 	system("cls");
-	cout << "\n\tCustomer Data:	";
+	cout << "\n\tChallenge 8 - Preferred Customer Class";
 	cout << "\n\t-----------------------------------------\n";
-	cout << customer << "\n";
+
+	PreferredCustomer customer;
+
+	setCustomerData(customer);
+
+	customer.setPurchaseAmount(inputDouble("\n\tEnter the purchase amount for this customer: ", true));
+	customer.setDiscountLevel();
+
+	cout << "\n" << customer << "\n";
 
 	cout << "\n";
+	system("pause");
+}
+
+void Challenge12()
+{
+
+	system("cls");
+	cout << "\n\tChallenge 12 - Ship, CruiseShip, and CargoShip classes";
+	cout << "\n\t-----------------------------------------\n";
+
+	Ship* ships[3] =
+	{
+		new Ship(),
+		new CruiseShip(),
+		new CargoShip()
+	};
+
+	ships[0]->setShipName("Nautica");;
+	ships[0]->setYearBuilt("1999");
+
+	dynamic_cast<CruiseShip*>(ships[1])->setShipName("Titanic");
+	dynamic_cast<CruiseShip*>(ships[1])->setYearBuilt("1911");
+	dynamic_cast<CruiseShip*>(ships[1])->setPassengers(2435);
+
+	dynamic_cast<CargoShip*>(ships[2])->setShipName("HMM Algeciras");
+	dynamic_cast<CargoShip*>(ships[2])->setYearBuilt("2020");
+	dynamic_cast<CargoShip*>(ships[2])->setTonnage(23820);
+
+	for (int s = 0; s < 3; s++)
+	{
+		cout << '\n';
+		ships[s]->print();
+	}
+
+	//FREE MEMORY
+	delete ships[0];
+	delete ships[1];
+	delete ships[2];
+
+
 	system("pause");
 }
