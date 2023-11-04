@@ -19,8 +19,8 @@ int CargoShip::getTonnage() const
 
 void CargoShip::print()
 {
-	cout << "\n\tCargo Ship \n";
-	cout << "\n\tName			 : " << name << "\n";
-	cout << "\n\tYear Built		 : " << yearBuilt << '\n';
-	cout << "\n\tMaximum Tonnage : " << tonnage << " tons \n";
+	cout << "\n\tCargo Ship";
+	cout << "\n\tName:						 " << name;
+	cout << "\n\tYear Built:					 " << yearBuilt;
+	cout << "\n\tMaximum Tonnage:				 " << tonnage << " tons\n";
 }

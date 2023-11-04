@@ -48,8 +48,8 @@ double PreferredCustomer::getDiscountLevel() const
 ostream& operator<<(ostream& out, const PreferredCustomer& obj)
 {
 	out << static_cast<CustomerData>(obj);
-	out << setprecision(2) << showpoint << fixed << "\n\tCustomer purchase Amount: $" << obj.getPurchaseAmount();
-	out << "\n\tCustomer discount level based on purchase amount: " << obj.getDiscountLevel() * 100 << "%";
+	out << setprecision(2) << showpoint << fixed << "\n\tCustomer purchase Amount:	$" << obj.getPurchaseAmount();
+	out << "\n\tDiscount Level:			" << obj.getDiscountLevel() * 100 << "%";
 
 	return out;
 }

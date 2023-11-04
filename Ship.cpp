@@ -36,7 +36,7 @@ string Ship::getYearBuilt() const
 
 void Ship::print()
 {
-	cout << "\n\tShip:\n";
-	cout << "\n\tName		:" << name << "\n";
-	cout << "\n\tYear Built	:" << yearBuilt << "\n";
+	cout << "\n\tShip:";
+	cout << "\n\tName:						 " << name;
+	cout << "\n\tYear Built:					 " << yearBuilt;
 }

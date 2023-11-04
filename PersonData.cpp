@@ -97,13 +97,13 @@ string PersonData::getPhone() const
 
 ostream& operator<<(ostream& out, const PersonData& obj)
 {
-	out << "\n\tCustomer first name: " << obj.getFirstName();
-	out << "\n\tCustomer last name: " << obj.getLastName();
-	out << "\n\tCustomer Address: " << obj.getAddress();
-	out << "\n\tCustomer City: " << obj.getCity();
-	out << "\n\tCustomer State: " << obj.getState();
-	out << "\n\tCustomer Zip: " << obj.getZip();
-	out << "\n\tCustomer Phone: " << obj.getPhone();
+	out << "\n\tCustomer first name:		" << obj.getFirstName();
+	out << "\n\tCustomer last name:		" << obj.getLastName();
+	out << "\n\tCustomer Address:		" << obj.getAddress();
+	out << "\n\tCustomer City:			" << obj.getCity();
+	out << "\n\tCustomer State:			" << obj.getState();
+	out << "\n\tCustomer Zip:			" << obj.getZip();
+	out << "\n\tCustomer Phone:			" << obj.getPhone();
 
 	return out;
 }

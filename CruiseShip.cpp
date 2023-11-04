@@ -24,8 +24,8 @@ int CruiseShip::getPassengers() const
 
 void CruiseShip::print()
 {
-	cout << "\n\tCruise Ship: \n";
-	cout << "\n\tName						  : " << name << '\n';
-	cout << "\n\tYear built					  : " << yearBuilt << "\n";
- 	cout << "\n\tMaximum number of passengers : " << maxPassengers << '\n';
+	cout << "\n\tCruise Ship:";
+	cout << "\n\tName:						 " << name;
+	cout << "\n\tYear built:					 " << yearBuilt;
+ 	cout << "\n\tMaximum number of passengers:			 " << maxPassengers << " passengers.";
 }

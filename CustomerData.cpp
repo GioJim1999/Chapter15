@@ -41,7 +41,7 @@ string CustomerData::isMailingList() const
 ostream& operator<<(ostream& out, const CustomerData& obj)
 {
 	out << static_cast<PersonData>(obj);
-	out << "\n\tCustomer Number: " << obj.getCustomerNumber();
-	out << "\n\tIs on mailing list: " << obj.isMailingList();
+	out << "\n\tCustomer Number:		" << obj.getCustomerNumber();
+	out << "\n\tIs on mailing list:		" << obj.isMailingList();
 	return out;
 }
